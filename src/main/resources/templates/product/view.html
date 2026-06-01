@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Product Detail</h1>
+
+    <p>
+        <img th:if="${product.imageName != null}"
+             th:src="@{/uploads/{img}(img=${product.imageName})}"
+             width="300">
+    </p>
+
+    <p><strong>ID:</strong> <span th:text="${product.id}"></span></p>
+
+    <p><strong>Name:</strong>
+        <span th:text="${product.name}"></span>
+    </p>
+
+    <p><strong>Price:</strong>
+        <span th:text="${product.price}"></span>
+    </p>
+
+    <p><strong>Stock:</strong>
+        <span th:text="${product.stock}"></span>
+    </p>
+
+    <p><strong>Description:</strong></p>
+
+    <div th:text="${product.description}"></div>
+
+    <br>
+
+    <a href="/products">Back to List</a>
+</div>
+
+</body>
+</html>

@@ -42,4 +42,10 @@ public class ProductService {
        List<Product> list = productRepository.findAllByNameContaining(name);
        return list;
     }
+
+    public Product findById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Product not found: " + id));
+    }
 }
